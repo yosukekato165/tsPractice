@@ -1,15 +1,29 @@
 // type タイプ名<型変数 extends 制約,...> = 型変数 extends 条件 ? 真の型 : 偽の型
 
 type Queue<T, K> = {
-  num: T;
-  string: (K | T)[] | undefined;
+  size: T;
+  color: (K | T)[] | undefined;
 };
 
 const tomato: Queue<number, string> = {
-  num: 1,
-  string: ["tomato", 1],
+  size: 1,
+  color: ["tomato", 1],
 };
 
 const test = (e: number): number => e + 1;
 
-const test1 = <T>(e: T): T => e;
+type Parson1 = {
+  name: string;
+};
+
+const test1 = <T extends Parson1>(e: T): string => e.name;
+
+const John: Parson1 = {
+  name: "John",
+};
+
+console.log(test1(John));
+
+// https://qiita.com/k-penguin-sato/items/9baa959e8919157afcd4
+
+const test2 = <T extends keyof Parson1>(e: T): string => e.name;
