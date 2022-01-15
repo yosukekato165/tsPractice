@@ -34,3 +34,8 @@ const sampleData: APIResponse = {
 
 extractFromAPIResponse(sampleData, "user"); // { id: 1, name: 'Alice' }
 // extractFromAPIResponse(sampleData, "wrongKey");
+
+type Parson33 = {
+  name: string;
+};
+type name33 = Parson33["name"];
