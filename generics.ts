@@ -1,5 +1,3 @@
-// type タイプ名<型変数 extends 制約,...> = 型変数 extends 条件 ? 真の型 : 偽の型
-
 type Queue<T, K> = {
   size: T;
   color: (K | T)[] | undefined;
@@ -16,7 +14,7 @@ const test = (e: number): number => e + 1;
 // 例えば下記の場合制約をつけないとeにnameが存在するか判断出来ないためである。
 // Property 'name' does not exist on type 'T'.ts(2339)
 
-const testError = <T>(e: T): string => e.name;
+// const testError = <T>(e: T): string => e.name;
 
 type Parson1 = {
   name: string;
@@ -33,4 +31,4 @@ console.log(test1(John));
 
 // https://qiita.com/k-penguin-sato/items/9baa959e8919157afcd4
 
-const test2 = <T extends keyof Parson1>(e: T): string => e.name;
+// const test2 = <T extends keyof Parson1>(e: T): string => e.name;
