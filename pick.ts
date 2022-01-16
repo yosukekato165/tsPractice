@@ -3,11 +3,19 @@ type Parson2 = {
   age: number;
 };
 
-/// type Pick<T, K extends keyof T> = { [P in K]: T[P] };
+type myPick<T, K extends keyof T> = { [P in K]: T[P] };
 
-const testPick = <T extends Pick<Parson2, "name">>(e: T): string => e.name;
+// K extends keyof T することでKに代入している文字列をTのkeyと紐づけることで型安全を担保している
+// [P in K]でKに代入された文字列の数ループしている
 
-const Johnson: Pick<Parson2, "name"> = {
+// T = Parson2 = {name: string, age: number};
+
+// K extends keyof T
+// k = name | age;
+// P = name in K = name | age: T=Parson2[P = name]
+const testPick = <T extends myPick<Parson2, "name">>(e: T): string => e.name;
+
+const Johnson: myPick<Parson2, "name"> = {
   name: "Johnson",
 };
 
