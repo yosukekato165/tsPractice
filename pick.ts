@@ -11,7 +11,7 @@ type myPick<T, K extends keyof T> = { [P in K]: T[P] };
 // T = Parson2 = {name: string, age: number};
 
 // K extends keyof T
-// k = name | age;
+// K = name extends keyof Parson2
 // P = name in K = name | age: T=Parson2[P = name]
 const testPick = <T extends myPick<Parson2, "name">>(e: T): string => e.name;
 
