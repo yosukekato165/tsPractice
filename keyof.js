@@ -8,5 +8,4 @@ var sampleData = {
     },
     isPremiumUser: true
 };
-console.log(extractFromAPIResponse(sampleData, "user"));
-// extractFromAPIResponse(sampleData, "wrongKey");
+extractFromAPIResponse(sampleData, "user"); // { id: 1, name: 'Alice' }
