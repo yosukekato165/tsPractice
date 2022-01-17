@@ -3,6 +3,8 @@ type Parson2 = {
   age: number;
 };
 
+type num = { color: number };
+
 type myPick<T, K extends keyof T> = { [P in K]: T[P] };
 
 // K extends keyof T することでKに代入している文字列をTのkeyと紐づけることで型安全を担保している
@@ -20,3 +22,7 @@ const Johnson: myPick<Parson2, "name"> = {
 };
 
 testPick(Johnson);
+
+type ParsonObj<T extends object = {}> = T;
+
+const Pam: ParsonObj<Parson2> = { name: "hoge", age: 12 };
