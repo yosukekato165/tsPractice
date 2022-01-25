@@ -3,9 +3,8 @@
 type extendsTest = string | object;
 
 // Tがstringだったらnumber、それ以外ならbooleanに変換
-type ChangeTypeIsStringToNumberIsNotStringToBoolean<
-  T extends extendsTest
-> = T extends string ? number : boolean;
+type ChangeTypeIsStringToNumberIsNotStringToBoolean<T extends extendsTest> =
+  T extends string ? number : boolean;
 
 type Test01A = ChangeTypeIsStringToNumberIsNotStringToBoolean<string>; //number
 type Test01B = ChangeTypeIsStringToNumberIsNotStringToBoolean<object>; //boolean
